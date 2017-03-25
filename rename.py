@@ -15,7 +15,7 @@ def rename_file():
 	files = get_file_names()
 	for f in files:
 		name = f.split('.')
-		nname = ".".join(name[:-4]) + "."  + str(int(name[-3]) + 5) + "." + ".".join(name[-2:])
+		nname = ".".join(name[:-5]) + ".dirA." + ".".join(name[-3:])
 		print nname
 		args = ['mv', '/root/ipv6/traffic/'+f, '/root/ipv6/traffic/'+nname]
 		p = subprocess.Popen(args)

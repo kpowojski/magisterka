@@ -9,7 +9,7 @@ username = 'wmazurczyk@tele.pw.edu.pl'
 password = 'steg4ever'
 
 
-baseurl_part1 = 'https://data.caida.org/datasets/passive-2016/equinix-chicago/20160406-130000.UTC/equinix-chicago.dirB.20160406-13'
+baseurl_part1 = 'https://data.caida.org/datasets/passive-2016/equinix-chicago/20160406-130000.UTC/equinix-chicago.dirA.20160406-13'
 baseurl_part2 = '00.UTC.anon.pcap.gz'
 
 def create_url_list():
@@ -74,7 +74,7 @@ def main():
 
 
 	counter = 0
-	for num in range(6,20):
+	for num in range(0,20):
 		download_file_with_wget(url_list[num])
 		sys_path = '/root/ipv6/traffic/' + url_list[num].split('/')[-1]
 		ungzip_file(sys_path)
