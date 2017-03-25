@@ -5,8 +5,6 @@ import subprocess
 
 
 
-username = 'wmazurczyk@tele.pw.edu.pl'
-password = 'steg4ever'
 
 
 baseurl_part1 = 'https://data.caida.org/datasets/passive-2016/equinix-chicago/20160406-130000.UTC/equinix-chicago.dirA.20160406-13'
