@@ -88,5 +88,7 @@ def test():
 	print ".".join('/root/ipv6/traffic/equinix-chicago.dirB.20160406-134500-10-1000.UTC.anon.pcap.gz'.split('.')[:-1])
 
 if __name__ == "__main__":
+	#pass credentials as input to main
+	#Credentials should remain secret!
 	main(sys.argv[1], sys.argv[2])
 #	test()
