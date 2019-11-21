@@ -27,9 +27,9 @@ def download_file(https_path):
 	with open('/root/ipv6/traffic/' +https_path.split('/')[-1] , 'wb') as pcap_file:
 		pcap_file.write(data)
 
-def download_file_with_wget(https_path):
+def download_file_with_wget(username, password, https_path):
 	print "##### Downloading file (with wget) " + https_path.split('/')[-1] + " #####"
-	args = ['wget', https_path, '--no-check-certificate', '--user', 'wmazurczyk@tele.pw.edu.pl', '--password', 'steg4ever', '--directory-prefix' , '/root/ipv6/traffic/']
+	args = ['wget', https_path, '--no-check-certificate', '--user', username, '--password', password, '--directory-prefix' , '/root/ipv6/traffic/']
 	p = subprocess.Popen(args)
 	stdout, stderr = p.communicate()
 	print "##### Downloading finished #####"
@@ -73,7 +73,7 @@ def main():
 
 	counter = 0
 	for num in range(0,20):
-		download_file_with_wget(url_list[num])
+		download_file_with_wget(username, password, url_list[num])
 		sys_path = '/root/ipv6/traffic/' + url_list[num].split('/')[-1]
 		ungzip_file(sys_path)
 		delete_file(sys_path)
@@ -88,5 +88,5 @@ def test():
 	print ".".join('/root/ipv6/traffic/equinix-chicago.dirB.20160406-134500-10-1000.UTC.anon.pcap.gz'.split('.')[:-1])
 
 if __name__ == "__main__":
-	main()
+	main(sys.argv[1], sys.argv[2])
 #	test()
